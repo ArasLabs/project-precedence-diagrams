@@ -1,0 +1,23 @@
+<AML>
+ <Item type="Method" id="700BF5F23E0E4BF499D19B2044865EE8" action="add">
+  <method_code><![CDATA[
+var project = this.newItem("Project","get");
+project.setID(this.getID());
+project.setAttribute("select","project_number,wbs_id");
+var result=project.apply();
+if (result.isError())
+{ top.aras.AlertError("Error getting wbs_id");
+}
+else
+{
+var loc="../Customer/SVGDiagrams/ShowPrintSVG.aspx";
+var qs="?proc_param=innovator.selectprecdiagdotdaynum '"+result.getProperty("wbs_id")+"'";
+qs+= "&db="+top.aras.commonProperties.database;
+qs+= "&proj_num="+result.getProperty("project_number");
+loc += qs;
+var oWin = top.window.open(loc,null,"status=no,toolbar=no,menubar=no,location=no,resizable=yes,width=1000");
+}]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>showPrecDiagDayNum</name>
+ </Item>
+</AML>

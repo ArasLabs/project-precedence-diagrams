@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SVGDiagrams", "http://jhodge02/Innovator810/Client/Customer/SVGDiagrams/SVGDiagrams.csproj", "{FF25124B-FDE1-4121-B8FB-D7BA23F78ADB}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{FF25124B-FDE1-4121-B8FB-D7BA23F78ADB}.Debug.ActiveCfg = Debug|.NET
+		{FF25124B-FDE1-4121-B8FB-D7BA23F78ADB}.Debug.Build.0 = Debug|.NET
+		{FF25124B-FDE1-4121-B8FB-D7BA23F78ADB}.Release.ActiveCfg = Release|.NET
+		{FF25124B-FDE1-4121-B8FB-D7BA23F78ADB}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

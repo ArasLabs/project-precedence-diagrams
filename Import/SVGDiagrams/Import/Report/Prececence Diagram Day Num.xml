@@ -1,0 +1,15 @@
+<AML>
+ <Item type="Report" id="BEAD4D8118034F70A4EB303B5561FB18" action="add">
+  <location>client</location>
+  <method keyed_name="showPrecDiagDayNum" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>showPrecDiagDayNum</name>
+   </Item>
+  </method>
+  <name>Prececence Diagram Day Num</name>
+  <report_query><![CDATA[<Item type="{@type}" id="{@id}" action="get" select=""/>
+]]></report_query>
+  <target>none</target>
+  <type>item</type>
+ </Item>
+</AML>

@@ -1,0 +1,3 @@
+<imports>
+  <package name="com.aras.innovator.solution.SVGDiagrams" path="SVGDiagrams\Import" />
+</imports>

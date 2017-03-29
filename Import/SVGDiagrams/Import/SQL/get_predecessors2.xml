@@ -1,0 +1,23 @@
+<AML>
+ <Item type="SQL" id="D1B48BFA765B487FA181811D95CBB163" action="add">
+  <execution_count>1</execution_count>
+  <execution_flag>immediate</execution_flag>
+  <name>get_predecessors2</name>
+  <old_name>get_predecessors2</old_name>
+  <sqlserver_body><![CDATA[/* Name:    GetPredecessors2.sql
+   */
+   
+   CREATE function  innovator.GET_PREDECESSORS2(@WBS_ID CHAR(32))
+   RETURNS @WBS_PREDS TABLE (SUCC CHAR(32), PRED CHAR(32),PT CHAR(32),LL  INT)
+   AS
+   begin
+   INSERT @WBS_PREDS SELECT SOURCE_ID, RELATED_ID,PRECEDENCE_TYPE,LEAD_LAG
+   FROM [PREDECESSOR]
+   WHERE SOURCE_ID IN (SELECT ID FROM SELECT_ACTIVITIES(@WBS_ID))
+   RETURN
+    end]]></sqlserver_body>
+  <stale>0</stale>
+  <transform_first>0</transform_first>
+  <type>function</type>
+ </Item>
+</AML>

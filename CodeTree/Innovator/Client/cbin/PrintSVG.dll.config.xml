@@ -1,0 +1,10 @@
+<configuration>
+   <runtime>
+      <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+         <dependentAssembly>
+            <assemblyIdentity name="PrintSVG"/>
+            <codeBase href="PrintSVG.dll"/>
+         </dependentAssembly>
+      </assemblyBinding>
+   </runtime>
+</configuration>

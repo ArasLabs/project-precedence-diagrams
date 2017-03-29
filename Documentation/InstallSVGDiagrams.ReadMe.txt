@@ -1,0 +1,22 @@
+Installing SVGDiagrams Package
+
+SVG Diagrams make use of 3rd Party software as follows:
+a) On the client, Adobe SVG Viewer renders SVG in Internet Explorer. It should download and install automatically from http://www.adobe.com/svg/viewer/install/
+b) On the server GraphViz converts data from Innovator to an SVG diagram which is sent to the client. GraphViz must be installed on the web server, it can be downloaded from http://www.graphviz.org/Download_windows.php
+
+
+1) Edit import.bat and change  url, database, login & password to the admin login credentials for your destination database
+2) Click import.bat to run it
+2) Download and install GraphViz, from GraphViz.org, on the web server
+3) Make sure that ASPNET has read and write access to C:\Temp folder
+4) Copy the contents of Client folder in zip to the Innovator\Client folder on the Innovator web server
+6) Edit Client\Customer\SVGDiagrams\Web.config at end to show location of InnovatorServerConfig.xml
+7) In IIS, make the folder Innovator\Client\customer\SVGDiagrams an Application Folder
+
+To test the installation
+
+8) Create a new Project
+9) Select the Project and choose Reports "Precedence Diagram Dates" and "Precedence Diagram Day Num" from the Main or Context Menus
+
+Jon Hodge
+3/14/2007

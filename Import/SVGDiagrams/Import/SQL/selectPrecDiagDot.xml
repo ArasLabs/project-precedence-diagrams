@@ -1,0 +1,37 @@
+<AML>
+ <Item type="SQL" id="97B3A8002FAE4323A93CE6C1160F7258" action="add">
+  <execution_count>2</execution_count>
+  <execution_flag>immediate</execution_flag>
+  <name>selectPrecDiagDot</name>
+  <old_name>selectPrecDiagDot</old_name>
+  <sqlserver_body><![CDATA[CREATE   procedure innovator.selectPrecDiagDot(@WBS_ID CHAR(32))
+AS
+begin
+
+SELECT     'a' + CAST(innovator.ACTIVITY2.id AS varchar(128)) 
+                      + '  [shape=record, style="filled'++ (CASE WHEN (innovator.ACTIVITY2.is_critical = 1) THEN ',bold' ELSE '' END)+'", fillcolor="'
+                      + CAST(CASE status WHEN '#FFFF00' THEN 'yellow2' WHEN '#00FF00' THEN 'green2' WHEN '#FF0000' THEN
+                       'red' WHEN '#0000FF' THEN 'blue' ELSE 'white' END AS varchar(7)) + '" ' 
+                      + (CASE WHEN (innovator.ACTIVITY2.is_critical = 1) THEN ' color="red" ' ELSE ' ' END) 
+                      + ' label="{' + innovator.ACTIVITY2.name + ' | { ' + CAST(innovator.ACTIVITY2.date_es AS varchar(11)) 
+                      + ' | ' + CAST(innovator.ACTIVITY2.expected_duration AS varchar(11)) + ' | ' + CAST(innovator.ACTIVITY2.date_ef AS VarChar(11)) 
+                      + ' } | { ' + CAST(innovator.ACTIVITY2.date_start_sched AS VarChar(11)) + ' | - | ' + CAST(innovator.ACTIVITY2.date_due_sched AS VarChar(11)) 
+                      + ' } | { ' + CAST(innovator.ACTIVITY2.date_ls AS VarChar(11)) + ' | ' + CAST(ISNULL(innovator.ACTIVITY2.work_est, 0) AS varchar(11)) 
+                      + ' | ' + CAST(innovator.ACTIVITY2.date_lf AS VarChar(11)) + '}}"];' AS Expr1
+FROM         innovator.SELECT_ACTIVITIES(@WBS_ID) SELECT_ACTIVITIES_1 INNER JOIN
+                      innovator.ACTIVITY2 ON SELECT_ACTIVITIES_1.ID = innovator.ACTIVITY2.id
+UNION
+SELECT     'a' + PRED + '-> a' + SUCC + ' [label="' + CAST(CASE PT WHEN 'Finish to Finish' THEN ' FF ' WHEN 'Start to Start ' THEN ' SS ' WHEN 'Start to Finish' THEN
+                       ' SF ' ELSE '' END AS varchar(4)) + CAST(CASE WHEN LL > 0 THEN ('+' + cast(LL AS VARCHAR(2))) WHEN LL < 0 THEN (cast(LL AS VARCHAR(2))) 
+                      ELSE '' END AS varchar(3)) + '"' + (CASE WHEN (pred.is_critical = 1 AND succ.is_critical = 1) THEN ' color="red" style=bold ' ELSE ' ' END) 
+                      + '];' AS Expr1
+FROM         innovator.GET_PREDECESSORS2(@WBS_ID) rel INNER JOIN
+                      innovator.activity2 succ ON rel.succ = succ.id INNER JOIN
+                      innovator.activity2 pred ON rel.pred = pred.id
+
+end]]></sqlserver_body>
+  <stale>0</stale>
+  <transform_first>0</transform_first>
+  <type>procedure</type>
+ </Item>
+</AML>

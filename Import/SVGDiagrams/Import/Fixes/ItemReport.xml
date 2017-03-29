@@ -1,0 +1,10 @@
+<AML>
+  <Item type="Item Report" typeId="5BD6BED0CD794A078AA42476F47ECF46" id="B13A7D156B864C7D8AFD9835D963ECBF" action="add">
+    <source_id>02184EDAA80D499CB6EC94B159966DBE</source_id>
+    <related_id keyed_name="Prececence Diagram Dates" type="Report">7ACF837F714D4814B7C72FFAF5B38253</related_id>
+  </Item>
+  <Item type="Item Report" typeId="5BD6BED0CD794A078AA42476F47ECF46" id="BB2610F246A0468A8926234141F06C35" action="add">
+    <source_id>02184EDAA80D499CB6EC94B159966DBE</source_id>
+    <related_id keyed_name="Prececence Diagram Day Num" type="Report">BEAD4D8118034F70A4EB303B5561FB18</related_id>
+  </Item>
+</AML>
